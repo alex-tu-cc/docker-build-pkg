@@ -4,7 +4,7 @@ MAINTAINER Alex Tu
 RUN \
 # useradd -ms /bin/bash user; \
  apt-get update; \
- apt-get install -y devscripts equivs pkg-create-dbgsym;
+ apt-get install -y devscripts equivs pkg-create-dbgsym; \
  apt-get install ccache;
 
 #USER user

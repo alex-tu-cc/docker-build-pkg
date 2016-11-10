@@ -11,3 +11,12 @@ the dependency is ready to build
  * network-manager-gnome:
   * https://wiki.gnome.org/Projects/NetworkManager
   * 
+
+## Usage:
+```
+ $ docker run -it --rm -v `pwd`:/srv/src alextucc/build-pkg:network-manager
+ # change account to user
+ $ su user
+ $ cd /srv/src
+ # followed the build instructions to build it.
+```
