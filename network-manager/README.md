@@ -14,9 +14,6 @@ the dependency is ready to build packages which be listed below
 
 ## Usage:
 ```bash
- $ docker run -it --rm -v `pwd`:/srv/src alextucc/build-pkg:network-manager
- # change account to user
- $ su user
- $ cd /srv/src
+ $ docker run -it --rm -v $(ccache -p | grep cache_dir -m 1 | awk '{print $NF}'):/ccache -v `pwd`:/srv/src alextucc/build-pkg:network-manager
  # followed the build instructions to build it.
 ```

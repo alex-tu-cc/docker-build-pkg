@@ -5,7 +5,7 @@ RUN \
 # useradd -ms /bin/bash user; \
  apt-get update; \
  apt-get install -y devscripts equivs pkg-create-dbgsym; \
- apt-get install ccache;
-
+ apt-get install ccache
+ENV CCACHE_DIR /ccache
 #USER user
 #WORKDIR /home/user
