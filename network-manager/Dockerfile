@@ -5,6 +5,5 @@ RUN \
  apt-get build-dep -y network-manager network-manager-gnome apt-utils; \
  # these 2 package not be listed in control, but cause failed in autogen.
  apt-get install -y libnss3-dev iptables
-  
-USER user
 WORKDIR /srv/src
+ENTRYPOINT usermod -u `ls -n | tail -1 | awk '{print $3}'` user; groupmod -g `ls -n | tail -1 | awk '{print $4}'` user; su user
