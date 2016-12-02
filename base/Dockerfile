@@ -1,11 +1,12 @@
-#IMAGE_NAME: alextucc/build-pkg:base
+#MAGE_NAME: alextucc/build-pkg:base
 FROM alextucc/xenial_env:base
 MAINTAINER Alex Tu
 RUN \
  useradd -ms /bin/bash user; echo "user:u" | chpasswd; adduser user sudo; \
  apt-get update; \
  apt-get install -y devscripts equivs pkg-create-dbgsym; \
- apt-get install ccache
+ apt-get install ccache; \
+ sed 's/\(ENV_PATH[[:blank:]]*PATH\)=/\1=\/usr\/lib\/ccache:/' -i /etc/login.defs
 
 ENV CCACHE_DIR /ccache
 ENV PATH /usr/lib/ccache:$PATH
